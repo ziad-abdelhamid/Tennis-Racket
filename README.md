@@ -34,9 +34,4 @@ The app estimates **Force (N)**, **Acceleration (m/s²)**, and **Rotation Angle 
 - Android Studio / VS Code
 - Physical Android device (required — sensors don't work on emulator)
 
----
 
-### 📥 Step 1: Clone Project
-```bash
-git clone https://github.com/your-username/tennis-racket-app.git
-cd tennis-racket-app
