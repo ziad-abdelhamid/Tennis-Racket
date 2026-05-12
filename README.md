@@ -1,16 +1,37 @@
-# untitled5
+# 🎾 Tennis Racket Sensor App (Flutter)
 
-A new Flutter project.
+A real-time motion tracking Flutter application that transforms your smartphone into a **virtual tennis racket** using built-in sensors.  
+The app estimates **Force (N)**, **Acceleration (m/s²)**, and **Rotation Angle (°)** using accelerometer and gyroscope data in real time.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 📱 Features
 
-A few resources to get you started if this is your first Flutter project:
+- 🎯 Live Force Calculation (Newton)
+- 📊 Maximum Swing Power tracking
+- 🔄 Rotation angle detection
+- ⚙️ Adjustable phone mass (simulation)
+- 🧮 Last swing power memory
+- 🔁 Reset session system
+- 📡 Real-time sensor streaming
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 📸 App Preview
+
+| Feature | Description |
+|--------|-------------|
+| Live Dashboard | Real-time force, rotation, and swing stats |
+| Sensor Tracking | Accelerometer + Gyroscope analysis |
+| Control Panel | Mass slider + reset button |
+
+---
+
+## ⚙️ Installation
+
+### 🔧 Requirements
+- Flutter SDK ≥ 3.10
+- Android Studio / VS Code
+- Physical Android device (required — sensors don't work on emulator)
+
+
