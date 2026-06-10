@@ -4,29 +4,30 @@ import 'package:flutter/material.dart';
 import 'package:sensors_plus/sensors_plus.dart';
 class uiScreen extends StatefulWidget {
   const uiScreen({super.key});
-  @override
-  State<uiScreen> createState() => _uiScreenState();
+
+  State<uiScreen> createState() => uiScreenState();
 }
-class _uiScreenState extends State<uiScreen> {
+class uiScreenState extends State<uiScreen> {
   double mass = 0.5;
   double force = 0;
   double last = 0;
   double max = 0;
   double angle = 0;
+
   StreamSubscription<UserAccelerometerEvent>? accelerometer;
   StreamSubscription<GyroscopeEvent>? gyroscope;
 
-  @override
+
   void initState() {
     super.initState();
-    _initSensors();
+    initSensors();
   }
-  void _initSensors() {
+  void initSensors() {
     accelerometer = userAccelerometerEvents.listen((UserAccelerometerEvent event) {
       setState(() {
         double acceleration = math.sqrt(math.pow(event.x, 2) + math.pow(event.y, 2) + math.pow(event.z, 2)
         );
-        force = mass * acceleration;
+        force = mass*acceleration;
         if (force > max) max = force;
       });
     });
@@ -39,14 +40,15 @@ class _uiScreenState extends State<uiScreen> {
       });
     });
   }
-  @override
+
+
   void dispose() {
     accelerometer?.cancel();
     gyroscope?.cancel();
     super.dispose();
   }
 
-  @override
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar:AppBar(
@@ -59,11 +61,12 @@ class _uiScreenState extends State<uiScreen> {
         child: Column(
           children: [
             cards("Crrent Force", "${force.toStringAsFixed(2)} N",Colors.blue),
+
             SizedBox(height : 15),
 
-            cards("Max Swing Power","${max.toStringAsFixed(2)} N",Colors.red),
+            cards("Max Swing Power","${max.toStringAsFixed(2)  } N",Colors.red),
               SizedBox(height : 15),
-            cards(" Rotation Angle","${(angle % 360).toStringAsFixed(0)}°",Colors.green),
+            cards(" Rotation Angle","${(angle % 360).toStringAsFixed(2)}°",Colors.green),
               SizedBox(height : 15),
             cards("Last Swing Power","${last.toStringAsFixed(2)}N",Colors.orange),
             SizedBox(height:15),
@@ -83,7 +86,6 @@ class _uiScreenState extends State<uiScreen> {
                 child:Text("RESET",style:TextStyle(fontSize:18,fontWeight  : FontWeight.bold)),
               ),
             ),
-             SizedBox(height:20),
           ],
         ),
       ),
